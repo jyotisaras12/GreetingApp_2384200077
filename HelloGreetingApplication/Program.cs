@@ -1,3 +1,5 @@
+using BusinessLayer.Interface;
+using BusinessLayer.Service;
 using NLog;
 using NLog.Web;
 
@@ -19,6 +21,7 @@ try
     // Add Swagger to container
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
+    builder.Services.AddScoped<IGreetingBL, GreetingBL>();
 
     var app = builder.Build();
 
